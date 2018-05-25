@@ -1,0 +1,16 @@
+html{
+    font-family: avenir;
+    background-color: coral;
+    font-size: 20px;
+    margin: 5%;
+}
+
+button{
+    float: right;
+    font-family: avenir;
+    font-size: 20px;
+    position: absolute;
+    right: 10%;
+    top: 10%;
+}
+
