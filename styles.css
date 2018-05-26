@@ -5,16 +5,13 @@ html{
     margin: 5%;
 }
 
-button{
-    float: right;
-    font-family: avenir;
-    font-size: 20px;
-    position: absolute;
-    right: 10%;
-    top: 10%;
+body{
+    padding-bottom: 10%;
 }
 
-div{
+input{
+    width: 50px;
+    margin: 0 5px;
 }
 
 .Person .div{
