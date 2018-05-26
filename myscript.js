@@ -3,7 +3,7 @@ var paying_people = 0;
 var total_bill = 0;
 var bill_tax = 0;
 var bill_tip = 0;
-var person_obj = '<div class = "Person">Person ##:  Name: <input id = "name##" type = "text"> Amount: $<input id = "amount" type = "text" onchange="display_person_total()"><span id = "total"></span></div>';
+var person_obj = '<div style = "float:left; width:100%" class = "Person">Person ##: <span id = "total"></span></br><div style = "display:inline">Name: <input id = "name##" type = "text"></div> <div style = "display:inline; float:left">Amount: $<input id = "amount" type = "text" onchange="display_person_total()"></div></div>';
 
 function get_party_size() {
     var size = parseInt($("#party_size").val());
@@ -35,7 +35,7 @@ function get_tip_amount(){
 
 function display_data(){
     display_person_total();
-    $("#display").find("#party").empty().append("Party size: " + party_size + " People");
+    $("#display").find("#party").empty().append(party_size + " People");
     $("#display").find("#tip").empty().append("Tip: " + bill_tip*100 + "%");
     $("#display").find("#tax").empty().append("Tax: " + bill_tax*100 + "%");
 }
@@ -77,7 +77,7 @@ function display_person_total(){
         $(this).find("#total").empty().append(" Total: $" + individ_amount.toFixed(2));
     });
     total_bill = total_bill * (1 + bill_tip + bill_tax);
-    $("#display").find("#bill").empty().append(" Total Bill: $" + total_bill.toFixed(2));
+    $("#display").find("#bill").empty().append(" Total: $" + total_bill.toFixed(2));
 }
 
 function clear_data(){
