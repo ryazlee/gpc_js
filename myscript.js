@@ -1,7 +1,8 @@
 var party_size = 0;
+var total_bill = 0;
 var person = {};
 var people = [];
-var person_obj = '<div class = "Person">Person ##:  Name: <input id = "name##" type = "text"> Amount: <input id = "amount" type = "text" onchange="calculate_total()"></div>';
+var person_obj = '<div class = "Person">Person ##:  Name: <input id = "name##" type = "text"> Amount: $<input id = "amount" type = "text" onchange="display_person_total()"><span id = "total"></span></div>';
 
 function get_party_size() {
     var data = $("#party_size").val();
@@ -12,7 +13,7 @@ function get_party_size() {
 function display_data(){
     var message = "Party size: " + party_size + " People";
     create_people(party_size);
-    $("#display").empty().append(message);
+    $("#display").find("#party").empty().append(message);
 }
 
 function create_people(num_people){
@@ -24,8 +25,15 @@ function create_people(num_people){
     $("#people").empty().append(msg);
 }
 
-function calculate_total(){
+function display_person_total(){
+    total_bill = 0;
     $('.Person').each(function() {
-        $(this).find("amount").empty().append("HELLO");
+        individ_amount = parseFloat($(this).find("#amount").val());
+        if (isNaN(individ_amount)) {
+            individ_amount = 0;
+        }
+        total_bill += individ_amount;
+        $(this).find("#total").empty().append(" Total: $" + individ_amount);
     });
+    $("#display").find("#bill").empty().append(" Total Bill: $" + total_bill);
 }

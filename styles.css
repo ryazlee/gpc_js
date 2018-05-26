@@ -14,3 +14,9 @@ button{
     top: 10%;
 }
 
+div{
+}
+
+.Person .div{
+    display: inline;
+}
