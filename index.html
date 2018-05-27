@@ -5,10 +5,12 @@
         <title>Group Payment Calculator</title>
         <link rel = "stylesheet" href = "styles.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
         <script src="myscript.js"></script>
     </head>
     <body>
-        <h1>Group Payment Calculator!</h1>
+        <h1>Group Payment Calculator</h1>
+        <h5>Fill out table on left and your summary of payments will be on the right -></h5>
         <div style = "width: 60%; float: left; padding-bottom: 10%">
             Party Size: <input id = "party_size" type="text" onchange="get_party_size()"><span><button type="button" id = "clear_data_button" onclick="clear_data()">Clear Data</button></span></br>
             Tax: <input id = "tax_amount" type="text" onchange="get_tax_amount()">%</br>
@@ -16,7 +18,7 @@
             <div id = "people"></div>
         </div>
         <div id = "display" style = "float: right; width: 35%">
-            <div style = "font-weight: 900">Summary:</div>
+            <b>Summary:</b>
             <div id = "party"></div>
             <div id = "bill"></div>
             <div id = "tax"></div>

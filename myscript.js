@@ -3,7 +3,7 @@ var paying_people = 0;
 var total_bill = 0;
 var bill_tax = 0;
 var bill_tip = 0;
-var person_obj = '<div style = "float:left; width:100%" class = "Person">Person ##: <span id = "total"></span></br><div style = "display:inline; float: left">Name: <input id = "name" type = "text" onchange="display_person_total()"></div> <div style = "display:inline; float: left">Amount: $<input id = "amount" type = "text" onchange="display_person_total()"></div></div>';
+var person_obj = '--------</br><div style = "float:left; width:100%" class = "Person">Person ##: <span id = "total"></span></br><div style = "display:inline; float: left">Name: <input id = "name" type = "text" onchange="display_person_total()"></div> <div style = "display:inline; float: left">Amount: $<input id = "amount" type = "text" onchange="display_person_total()"></div></div>';
 
 function get_party_size() {
     var size = parseInt($("#party_size").val());
@@ -48,13 +48,14 @@ function display_summary(){
     $("#display").find("#people").empty();
     $('.Person').each(function(){
         individ_name = $(this).find("#name").val();
-        individ_total = $(this).find("#total").html().slice(7); 
+        individ_total = $(this).find("#total").html().slice(10); 
+        console.log(individ_total);
         if (individ_name == "") {
             temp = $(this).html();
             individ_name = temp.slice(0, temp.indexOf(":"));
         }
         if ($(this).find("#amount").val() != 0) {
-            $("#display").find("#people").append(individ_name + ": " + individ_total + "</br>");
+            $("#display").find("#people").append("<b>" +  individ_name + ":</b> " + individ_total + "</br>");
         }
     });
     tax_amount = bill_tax * total_bill; 
@@ -96,7 +97,7 @@ function display_person_total(){
             individ_tip = total_bill * (bill_tip / paying_people);
             individ_amount += individ_tip + individ_tax;
         }
-        $(this).find("#total").empty().append(" Total: $" + individ_amount.toFixed(2));
+        $(this).find("#total").empty().append("<i> Total:</i> <i>$" + individ_amount.toFixed(2) + "</i>");
     });
     temp_total_bill = total_bill * (1 + bill_tip + bill_tax);
     $("#display").find("#bill").empty().append(" Total: $" + temp_total_bill.toFixed(2));

@@ -5,12 +5,16 @@ html{
     margin: 5%;
 }
 
+button{
+
+}
+
 body{
     padding-bottom: 10%;
 }
 
 input{
-    width: 50px;
+    width: 40px;
     margin: 0 5px;
 }
 
