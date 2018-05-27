@@ -3,7 +3,7 @@ var paying_people = 0;
 var total_bill = 0;
 var bill_tax = 0;
 var bill_tip = 0;
-var person_obj = '<div style = "float:left; width:100%" class = "Person">Person ##: <span id = "total"></span></br><div style = "display:inline">Name: <input id = "name##" type = "text"></div> <div style = "display:inline; float:left">Amount: $<input id = "amount" type = "text" onchange="display_person_total()"></div></div>';
+var person_obj = '<div style = "float:left; width:100%" class = "Person">Person ##: <span id = "total"></span></br><div style = "display:inline; float: left">Name: <input id = "name" type = "text" onchange="display_person_total()"></div> <div style = "display:inline">Amount: $<input id = "amount" type = "text" onchange="display_person_total()"></div></div>';
 
 function get_party_size() {
     var size = parseInt($("#party_size").val());
@@ -35,9 +35,23 @@ function get_tip_amount(){
 
 function display_data(){
     display_person_total();
+    $("#display").find("#people").empty();
     $("#display").find("#party").empty().append(party_size + " People");
     $("#display").find("#tip").empty().append("Tip: " + bill_tip*100 + "%");
     $("#display").find("#tax").empty().append("Tax: " + bill_tax*100 + "%");
+    display_summary(); 
+}
+
+function display_summary(){
+    $("#display").find("#people").empty();
+    $('.Person').each(function(){
+        individ_name = $(this).find("#name").val();
+        individ_total = $(this).find("#total").html().slice(7); 
+        if ($(this).find("#amount").val() != 0) {
+            $("#display").find("#people").append(individ_name + ": " + individ_total + "</br>");
+        }
+    });
+
 }
 
 function create_people(num_people){
@@ -72,14 +86,18 @@ function display_person_total(){
             individ_tax = total_bill * (bill_tax * individ_amount/total_bill);
             individ_tip = total_bill * (bill_tip / paying_people);
             individ_amount += individ_tip + individ_tax;
-            console.log(individ_tip + " " + individ_tax);
         }
         $(this).find("#total").empty().append(" Total: $" + individ_amount.toFixed(2));
     });
     total_bill = total_bill * (1 + bill_tip + bill_tax);
     $("#display").find("#bill").empty().append(" Total: $" + total_bill.toFixed(2));
+    display_summary();
 }
 
 function clear_data(){
     $("input:text").val("");
+    get_party_size();
+    get_tax_amount();
+    get_tip_amount();
+    display_data();
 }
