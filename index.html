@@ -9,18 +9,19 @@
     </head>
     <body>
         <h1>Group Payment Calculator!</h1>
-        <div style = "width: 70%; float: left; padding-bottom: 10%">
+        <div style = "width: 60%; float: left; padding-bottom: 10%">
             Party Size: <input id = "party_size" type="text" onchange="get_party_size()"><span><button type="button" id = "clear_data_button" onclick="clear_data()">Clear Data</button></span></br>
             Tax: <input id = "tax_amount" type="text" onchange="get_tax_amount()">%</br>
             Tip: <input id = "tip_amount" type="text" onchange="get_tip_amount()">%</br>
             <div id = "people"></div>
         </div>
-        <div id = "display" style = "float: right; width: 25%">
+        <div id = "display" style = "float: right; width: 35%">
+            <div style = "font-weight: 900">Summary:</div>
             <div id = "party"></div>
             <div id = "bill"></div>
             <div id = "tax"></div>
             <div id = "tip"></div>
-            -------------
+            -----------
             <div id = "people"></div>
         </div>
     </body>
