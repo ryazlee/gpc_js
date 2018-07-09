@@ -1,11 +1,15 @@
 html{
-    font-family: avenir;
-    background-color: #E6E6FA;
+    font-family: 'Ubuntu Condensed';
+    background-color: white;
     font-size: 100%;
-    margin: 5%;
+    margin: 30px;
 }
 
 button{
+    margin-bottom: 10px;
+}
+
+input{
 
 }
 
@@ -18,6 +22,27 @@ input{
     margin: 0 5px;
 }
 
+.Person {
+    color: blue;
+}
+
 .Person .div{
     display: inline;
 }
+
+#party{
+    color: red;
+}
+
+#bill{
+    color: green;
+}
+
+#tax, #tip{
+    color: purple;
+}
+
+#people{
+    color: blue;
+}
+

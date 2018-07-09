@@ -4,6 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Group Payment Calculator</title>
         <link rel = "stylesheet" href = "css/styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu Condensed' rel='stylesheet'>
         <script src="js/jquery-3.3.1.min.js"></script>  
         <script src="js/myscript.js"></script>
     </head>
@@ -11,7 +12,8 @@
         <h1>Group Payment Calculator</h1>
         <h5>Fill out table on left and your summary of payments will be on the right &#8594;</h5>
         <div style = "width: 60%; float: left; padding-bottom: 10%">
-            Party Size: <input id = "party_size" type="text" onchange="get_party_size()"><span><button type="button" id = "clear_data_button" onclick="clear_data()">Clear Data</button></span></br>
+        <span><button type="button" id = "clear_data_button" onclick="clear_data()">Clear Data</button></span></br>
+            Party Size: <input id = "party_size" type="text" onchange="get_party_size()"></br>
             Tax: <input id = "tax_amount" type="text" onchange="get_tax_amount()">%</br>
             Tip: <input id = "tip_amount" type="text" onchange="get_tip_amount()">%</br>
             <div id = "people"></div>
