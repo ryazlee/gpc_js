@@ -30,6 +30,22 @@ input{
     display: inline;
 }
 
+.left{
+    width: 60%; 
+    float: left; 
+    padding-bottom: 10px;
+}
+
+.right{
+    float: right; 
+    width: 35%;
+}
+
+.center{
+    margin: 65px auto;
+    text-align: center;
+}
+
 #party{
     color: red;
 }
