@@ -42,6 +42,7 @@ function display_data(){
     $("#display").find("#tax").empty().append("Tax: " + bill_tax*100 + "% ($" + tax_amount.toFixed(2) + ")");
     $("#display").find("#tip").empty().append("Tip: " + bill_tip*100 + "% ($" + tip_amount.toFixed(2) + ")");
     display_summary(); 
+    update_date();
 }
 
 function display_summary(){
@@ -110,4 +111,26 @@ function clear_data(){
     get_tax_amount();
     get_tip_amount();
     display_data();
+}
+
+function update_date(){
+    var today = new Date();
+    var date = (today.getMonth()+1)+'.'+today.getDate()+'.'+today.getFullYear();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+    $("#date_text").empty().append(dateTime);
+}
+
+function show_summary(){
+    display_data();
+    if ($("#display").hasClass("right")){
+        $("#user_input").hide();
+        $("#hint_text").show();
+        $('#display').addClass('center').removeClass('right');
+
+    }else{
+        $("#user_input").show();
+        $("#hint_text").hide();
+        $('#display').addClass('right').removeClass('center');
+    }
 }
