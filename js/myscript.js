@@ -126,11 +126,13 @@ function show_summary(){
     if ($("#display").hasClass("right")){
         $("#user_input").hide();
         $("#hint_text").show();
+        $("#show_summary_button").html("Back");
         $('#display').addClass('center').removeClass('right');
 
     }else{
         $("#user_input").show();
         $("#hint_text").hide();
+        $("#show_summary_button").html("Show Summary");
         $('#display').addClass('right').removeClass('center');
     }
 }
